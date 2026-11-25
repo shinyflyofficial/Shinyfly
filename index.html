@@ -63,37 +63,38 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline:2px s
 .download:active{transform:translateY(-1px) scale(.98)}
 .download:focus-visible{outline:2px solid #d8b4fe!important;outline-offset:4px}
 
-/* Trilhas roxas escuras em movimento contínuo atrás da mascote */
+/* Trilhas roxas mais intensas em movimento contínuo atrás da mascote */
 .rings{
-  border-color:rgba(91,35,145,.36)!important;
-  box-shadow:0 0 26px rgba(76,24,124,.2),0 0 68px rgba(76,24,124,.12),inset 0 0 48px rgba(76,24,124,.1)!important;
+  border-color:rgba(125,45,205,.78)!important;
+  box-shadow:0 0 12px rgba(112,35,190,.46),0 0 28px rgba(112,35,190,.34),0 0 62px rgba(83,22,145,.24),inset 0 0 42px rgba(112,35,190,.18)!important;
   animation:snakeLoop 8s linear infinite!important;
 }
 .rings:before,.rings:after{
-  border-color:rgba(91,35,145,.42)!important;
-  box-shadow:0 0 16px rgba(93,35,150,.12),inset 0 0 18px rgba(93,35,150,.08);
+  border-color:rgba(139,55,220,.78)!important;
+  box-shadow:0 0 10px rgba(139,55,220,.36),0 0 24px rgba(112,35,190,.25),inset 0 0 20px rgba(112,35,190,.15);
   animation:snakeFlow 5.5s linear infinite!important;
 }
 .rings:after{
-  border-color:rgba(122,54,184,.34)!important;
+  border-color:rgba(103,35,174,.72)!important;
+  box-shadow:0 0 12px rgba(103,35,174,.38),0 0 30px rgba(103,35,174,.26),inset 0 0 22px rgba(103,35,174,.16);
   animation:snakeFlowReverse 7.5s linear infinite!important;
 }
 @keyframes snakeLoop{
-  0%{transform:rotate(0deg) scale(1)}
-  50%{transform:rotate(180deg) scale(1.035)}
-  100%{transform:rotate(360deg) scale(1)}
+  0%{transform:rotate(0deg) scale(1);filter:brightness(1)}
+  50%{transform:rotate(180deg) scale(1.035);filter:brightness(1.35)}
+  100%{transform:rotate(360deg) scale(1);filter:brightness(1)}
 }
 @keyframes snakeFlow{
-  0%{transform:rotate(0deg) scale(1);border-radius:43% 57% 62% 38%/43% 40% 60% 57%}
-  25%{transform:rotate(90deg) scale(1.025);border-radius:58% 42% 38% 62%/52% 58% 42% 48%}
-  50%{transform:rotate(180deg) scale(1);border-radius:60% 40% 42% 58%/55% 60% 40% 45%}
-  75%{transform:rotate(270deg) scale(.975);border-radius:42% 58% 60% 40%/46% 42% 58% 54%}
-  100%{transform:rotate(360deg) scale(1);border-radius:43% 57% 62% 38%/43% 40% 60% 57%}
+  0%{transform:rotate(0deg) scale(1);border-radius:43% 57% 62% 38%/43% 40% 60% 57%;opacity:.82}
+  25%{transform:rotate(90deg) scale(1.025);border-radius:58% 42% 38% 62%/52% 58% 42% 48%;opacity:1}
+  50%{transform:rotate(180deg) scale(1);border-radius:60% 40% 42% 58%/55% 60% 40% 45%;opacity:.88}
+  75%{transform:rotate(270deg) scale(.975);border-radius:42% 58% 60% 40%/46% 42% 58% 54%;opacity:1}
+  100%{transform:rotate(360deg) scale(1);border-radius:43% 57% 62% 38%/43% 40% 60% 57%;opacity:.82}
 }
 @keyframes snakeFlowReverse{
-  0%{transform:rotate(360deg) scale(1)}
-  50%{transform:rotate(180deg) scale(1.04)}
-  100%{transform:rotate(0deg) scale(1)}
+  0%{transform:rotate(360deg) scale(1);opacity:.9}
+  50%{transform:rotate(180deg) scale(1.04);opacity:1}
+  100%{transform:rotate(0deg) scale(1);opacity:.9}
 }
 @media(prefers-reduced-motion:reduce){
   .rings,.rings:before,.rings:after{animation:none!important}
