@@ -45,7 +45,61 @@ header{height:76px;display:flex;align-items:center;justify-content:space-between
 /* Toque sem realce azul; foco de teclado continua acessível. */
 html,body,button,a,[role="button"]{-webkit-tap-highlight-color:transparent;}
 button,a,[role="button"]{outline:none;}
-button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}</style></head>
+button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+/* Botões de download com destaque neon roxo */
+.download{
+  color:#fff!important;
+  border:1px solid rgba(190,125,255,.78)!important;
+  background:linear-gradient(115deg,#6d20b5 0%,#8b35e8 48%,#5b159e 100%)!important;
+  box-shadow:0 0 12px rgba(139,53,232,.48),0 0 28px rgba(139,53,232,.34),0 8px 26px rgba(70,18,112,.42),inset 0 1px rgba(255,255,255,.28)!important;
+  text-shadow:0 1px 8px rgba(255,255,255,.22);
+  transition:transform .22s ease,box-shadow .22s ease,filter .22s ease!important;
+}
+.download:hover{
+  transform:translateY(-3px);
+  filter:brightness(1.13);
+  box-shadow:0 0 16px rgba(171,91,255,.7),0 0 42px rgba(139,53,232,.58),0 12px 30px rgba(70,18,112,.5),inset 0 1px rgba(255,255,255,.35)!important;
+}
+.download:active{transform:translateY(-1px) scale(.98)}
+.download:focus-visible{outline:2px solid #d8b4fe!important;outline-offset:4px}
+
+/* Trilhas roxas escuras em movimento contínuo atrás da mascote */
+.rings{
+  border-color:rgba(91,35,145,.36)!important;
+  box-shadow:0 0 26px rgba(76,24,124,.2),0 0 68px rgba(76,24,124,.12),inset 0 0 48px rgba(76,24,124,.1)!important;
+  animation:snakeLoop 8s linear infinite!important;
+}
+.rings:before,.rings:after{
+  border-color:rgba(91,35,145,.42)!important;
+  box-shadow:0 0 16px rgba(93,35,150,.12),inset 0 0 18px rgba(93,35,150,.08);
+  animation:snakeFlow 5.5s linear infinite!important;
+}
+.rings:after{
+  border-color:rgba(122,54,184,.34)!important;
+  animation:snakeFlowReverse 7.5s linear infinite!important;
+}
+@keyframes snakeLoop{
+  0%{transform:rotate(0deg) scale(1)}
+  50%{transform:rotate(180deg) scale(1.035)}
+  100%{transform:rotate(360deg) scale(1)}
+}
+@keyframes snakeFlow{
+  0%{transform:rotate(0deg) scale(1);border-radius:43% 57% 62% 38%/43% 40% 60% 57%}
+  25%{transform:rotate(90deg) scale(1.025);border-radius:58% 42% 38% 62%/52% 58% 42% 48%}
+  50%{transform:rotate(180deg) scale(1);border-radius:60% 40% 42% 58%/55% 60% 40% 45%}
+  75%{transform:rotate(270deg) scale(.975);border-radius:42% 58% 60% 40%/46% 42% 58% 54%}
+  100%{transform:rotate(360deg) scale(1);border-radius:43% 57% 62% 38%/43% 40% 60% 57%}
+}
+@keyframes snakeFlowReverse{
+  0%{transform:rotate(360deg) scale(1)}
+  50%{transform:rotate(180deg) scale(1.04)}
+  100%{transform:rotate(0deg) scale(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  .rings,.rings:before,.rings:after{animation:none!important}
+}
+
+</style></head>
 <body><div class="page"><header class="wrap"><a class="brand" href="#top" aria-label="Shinyfly início"><img src="./logo.png" alt=""><span>Shinyfly</span></a></header>
 <main id="top"><section class="hero wrap"><div class="kicker glass"><i class="pulse"></i> Sua música, no seu ritmo</div><h1>A vida acontece<span>em música.</span></h1><p class="lead">Uma experiência musical feita para acompanhar cada momento. Descubra, personalize e escute do seu jeito.</p><div class="actions"><button class="download" id="downloadBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg><span>Baixar Shinyfly</span></button><a class="secondary glass" href="#experiencia">Conhecer o app</a></div><div class="release" id="releaseLine"><i class="release-dot"></i><span id="releaseText">Consultando a versão mais recente…</span></div>
 <div class="music-visual" aria-hidden="true"><div class="rings"></div><div class="orb"><img src="./logo.png" alt=""></div></div></section>
